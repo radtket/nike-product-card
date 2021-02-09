@@ -1,6 +1,8 @@
 import styled, { css, createGlobalStyle } from "styled-components";
+import { normalize, position, cover, size, margin } from "polished";
 
 export const GlobalStyle = createGlobalStyle`
+  ${normalize()}
   * {
     margin: 0;
     padding: 0;
@@ -24,12 +26,11 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 0.8rem;
     }
   }
-
 `;
 
 export const StyledContainer = styled.div`
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
   min-height: 100vh;
   overflow: hidden;
@@ -41,13 +42,13 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledSection = styled.div`
-  padding: 10px 0;
   border-bottom: 1px solid #dadada;
+  padding: 10px 0;
 
   > h3 {
     color: #3a3a3a;
-    font-weight: 600;
     font-size: 1.2rem;
+    font-weight: 600;
     text-transform: uppercase;
 
     @media (max-width: 490px) {
@@ -75,9 +76,9 @@ export const StyledShoeName = styled(StyledSection)`
     dt {
       color: #333;
       font-size: 2rem;
-      margin-right: 10px;
-      line-height: 1;
       font-weight: 700;
+      line-height: 1;
+      margin-right: 10px;
     }
 
     dd {
@@ -98,10 +99,8 @@ export const StyledShoeName = styled(StyledSection)`
 `;
 
 export const StyledNikeLogoImg = styled.figure`
-  position: absolute;
+  ${position("absolute", "10px", null, null, "10px")};
   width: 100px;
-  left: 20px;
-  top: 20px;
 
   svg {
     display: block;
@@ -115,19 +114,14 @@ export const StyledNikeLogoImg = styled.figure`
 
   @media (max-width: 490px) {
     width: 60px;
-    top: 10px;
-    left: 10px;
   }
 `;
 
 export const StyledProductImg = styled.img`
-  bottom: 0;
-  opacity: 0;
-  position: absolute;
-  right: 0;
+  ${position("absolute", null, 0, 0, null)};
+  opacity: ${({ isvisible }) => (isvisible ? 1 : 0)};
   transform: rotate(-20deg);
   width: 140%;
-  opacity: ${({ isvisible }) => (isvisible ? 1 : 0)};
 
   @media (max-width: 1070px) {
     width: 135%;
@@ -151,19 +145,13 @@ export const StyledShoeBackground = styled.div`
 `;
 
 export const StyledGradientContainer = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
+  ${cover()};
+  ${size("100%")};
 `;
 
 export const StyledGradientBG = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
+  ${cover()};
+  ${size("100%")};
   z-index: ${({ isprevious }) => (isprevious ? -1 : -2)};
   background-image: ${({ gradient }) => gradient};
 
@@ -186,12 +174,11 @@ export const StyledGradientBG = styled.div`
 `;
 
 export const StyledNav = styled.nav`
-  display: flex;
   align-items: center;
+  display: flex;
   padding: 8px 0;
 
   @media (max-width: 340px) {
-    display: flex;
     justify-content: space-around;
   }
 `;
@@ -221,16 +208,16 @@ export const UnstyledButton = styled.button`
   }
 
   svg {
+    ${size("1em", "0.875em")};
     display: inline-block;
     font-size: inherit;
-    height: 1em;
     overflow: visible;
     vertical-align: -0.125em;
-    width: 0.875em;
   }
 `;
 
 export const SyledSizeButton = styled(UnstyledButton)`
+  ${size("40px")};
   align-items: center;
   background: #eee;
   border-radius: 6px;
@@ -238,10 +225,8 @@ export const SyledSizeButton = styled(UnstyledButton)`
   display: flex;
   font-size: 1.1rem;
   font-weight: 500;
-  height: 40px;
   justify-content: center;
   margin: 0 10px;
-  width: 40px;
 
   ${({ isActive }) =>
     isActive &&
@@ -255,8 +240,7 @@ export const SyledSizeButton = styled(UnstyledButton)`
   }
 
   @media (max-width: 490px) {
-    width: 30px;
-    height: 30px;
+    ${size("30px")};
     margin: 0 8px;
     font-size: 0.9rem;
     line-height: 30px;
@@ -315,20 +299,17 @@ export const StyledInfoSectionWrapper = styled.div`
 `;
 
 export const SyledShareButton = styled(UnstyledButton)`
-  display: flex;
+  ${size("50px")};
+  ${position("absolute", "15px", "15px", null, null)};
   align-items: center;
-  justify-content: center;
   background: #fff;
   border-radius: 50%;
   color: ${({ activeColorHex }) => activeColorHex};
+  display: flex;
   font-size: 1.3rem;
-  height: 50px;
-  position: absolute;
-  right: 15px;
+  justify-content: center;
   text-decoration: none;
-  top: 15px;
   transition: 0.5s;
-  width: 50px;
   z-index: 10;
 
   svg {
@@ -340,8 +321,7 @@ export const SyledShareButton = styled(UnstyledButton)`
   }
 
   @media (max-width: 600px) {
-    width: 40px;
-    height: 40px;
+    ${size("40px")};
 
     /* svg {
       font-size: 1rem;
@@ -349,8 +329,7 @@ export const SyledShareButton = styled(UnstyledButton)`
   }
 
   @media (max-width: 490px) {
-    width: 35px;
-    height: 35px;
+    ${size("35px")};
     top: 10px;
     right: 10px;
   }
@@ -422,18 +401,16 @@ export const StyledPriceWrap = styled.div`
 `;
 
 export const SyledColorButton = styled(UnstyledButton)`
+  ${size("25px")};
   cursor: pointer;
   border: 5px solid;
   border-radius: 50%;
-  height: 25px;
   margin: 0 10px;
   transition: 0.5s;
-  width: 25px;
 
   @media (max-width: 490px) {
-    margin: 0 20px;
-    width: 20px;
-    height: 20px;
+    ${size("20px")};
+    ${margin(null, "20px")};
     border-width: 4px;
   }
 

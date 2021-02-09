@@ -16,6 +16,7 @@ const App = () => {
   const [shoeBackgroundHeight, setShoeBackgroundHeight] = useState(
     DEFAULT_BACKGROUND_SIZE
   );
+
   const shoeRefs = Object.keys(DEFAULT_COLORS).reduce((all, color) => {
     return {
       ...all,
@@ -30,8 +31,8 @@ const App = () => {
   });
 
   useEffect(() => {
-    const shoe =
-      shoeRefs[DEFAULT_ACTIVE_COLOR] && shoeRefs[DEFAULT_ACTIVE_COLOR].current;
+    const { current: shoe = null } =
+      shoeRefs[DEFAULT_ACTIVE_COLOR] && shoeRefs[DEFAULT_ACTIVE_COLOR];
 
     // for responsive behaviour
     const changeHeight = () => {
