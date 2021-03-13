@@ -52,7 +52,7 @@ const ShoeBackground = ({
           alt={`${color} shoe`}
           color={`${color}`}
           isvisible={color === activeColor}
-          src={require(`../img/${color}.png`)}
+          src={`/img/${color}.png`}
         />
       );
     })}

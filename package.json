@@ -13,7 +13,7 @@
 		"prop-types": "^15.7.2",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
-		"react-scripts": "3.4.1",
+		"react-scripts": "^4.0.3",
 		"styled-components": "^5.1.1",
 		"typeface-poppins": "0.0.72"
 	},
@@ -21,7 +21,8 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"lint": "eslint . --fix"
 	},
 	"browserslist": {
 		"production": [
@@ -36,7 +37,7 @@
 		]
 	},
 	"devDependencies": {
-		"eslint": "^6.8.0",
+		"eslint": "^7.11.0",
 		"eslint-config-airbnb": "^18.1.0",
 		"eslint-plugin-import": "^2.20.2",
 		"eslint-plugin-jsx-a11y": "^6.2.3",

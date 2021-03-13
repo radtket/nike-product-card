@@ -45,7 +45,8 @@ const App = () => {
             try {
               setTimeout(changeHeight, 50);
             } catch (error) {
-              alert("Something is Wrong!!");
+              // eslint-disable-next-line no-console
+              console.log("Something is Wrong!!", { error });
             }
           }
 
